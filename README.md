@@ -1,0 +1,2 @@
+# ZYNQ_PRV32
+ZYNQ 7020 FPGA Platform SOC based on PicoRV32
