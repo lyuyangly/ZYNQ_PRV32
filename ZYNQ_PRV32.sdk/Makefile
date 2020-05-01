@@ -50,14 +50,14 @@ all: $(TARGET).elf $(TARGET).bin $(TARGET).asm $(TARGET).mif
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.S
 	@mkdir -p $(shell dirname $@)
-	@$(AS) $(ASFLAGS) $^ -o $@
-	@echo AS $^
+	@$(AS) $(ASFLAGS) $< -o $@
+	@echo AS $<
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(shell dirname $@)
 	@$(CC) $(CFLAGS) -MM -MT $@ -MF $(patsubst %.o, %.d, $@) $<
-	@$(CC) $(CFLAGS) -o $@ $<
-	@echo CC $^
+	@$(CC) $(CFLAGS) $< -o $@
+	@echo CC $<
 
 -include $(DEPS)
 
